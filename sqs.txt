@@ -1,0 +1,8 @@
+SQS stands for Simple Queing Service. So basically you can just send message to the queue and read messages from the queue.
+
+    A common use case is to create an integrated and automated workflow,  where multiple components or modules need to communicate with each  other, but can’t all process the same amount of work simultaneously. In  this case, Amazon SQS queues carry messages to be processed in an  orderly fashion by the user’s application running on Amazon EC2  instances. The Amazon EC2 instances can read the queue, process the job,  and then post the results as messages to another Amazon SQS queue  (possibly for further processing by another application).
+
+
+For example, let's say you work at Facebook and need to convert uploaded videos from one format to another. Converting videos can take a long time, so it wouldn't be reasonable to do it all in one HTTP request. Instead, you might save the original video to storage, like AWS's S3, and then send a message to an SQS queue with the location of the saved video. Another service will read these messages from the queue, and convert the videos in the order in which they were placed there. Then it might send a message to a different queue telling another service to alert you the video is done being converted.
+
+
